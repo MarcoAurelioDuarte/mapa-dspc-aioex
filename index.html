@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit DSPC · AIOX na Prática</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --preto:#131109; --preto-2:#1B1810;
+  --bege:#E8DCC4; --amarelo:#F6C324;
+  --bronze:#9A7D56; --bronze-claro:#A88A5C; --brasa:#8B0000;
+  --fg1:#E8DCC4; --fg2:rgba(232,220,196,.68); --fg3:rgba(232,220,196,.50);
+  --linha-bronze:rgba(139,111,71,.40); --linha-fraca:rgba(139,111,71,.18);
+  --amarelo-08:rgba(246,195,36,.08); --brasa-14:rgba(139,0,0,.14);
+  --ouro-revelado:linear-gradient(135deg,#8B6F47,#F6C324);
+  --linha-de-fogo:linear-gradient(180deg,#F6C324,#E63946,#8B0000);
+  --voz-monumental:'Archivo Black','Arial Black',sans-serif;
+  --voz-sagrada:'Cinzel','Trajan Pro',serif;
+  --voz-operacional:'EB Garamond',Georgia,serif;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{
+  background:var(--preto);
+  color:var(--fg1);
+  font-family:var(--voz-operacional);
+  min-height:100vh;
+  background-image:
+    radial-gradient(1200px 600px at 80% 0%, var(--amarelo-08), transparent 60%),
+    radial-gradient(900px 560px at -12% 12%, var(--brasa-14), transparent 55%);
+}
+.wrap{max-width:900px; margin:0 auto; padding:64px 32px 100px;}
+
+/* Header */
+.brandline{display:flex; align-items:center; gap:12px; margin-bottom:32px;}
+.seal{width:34px;height:34px;border:1.5px solid var(--bronze);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--voz-sagrada);color:var(--amarelo);font-size:15px;flex:0 0 auto;}
+.meta{font-family:var(--voz-sagrada); font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--bronze);}
+.kicker{font-family:var(--voz-sagrada); font-size:12px; letter-spacing:.32em; text-transform:uppercase; color:var(--amarelo); margin-bottom:14px;}
+h1{font-family:var(--voz-monumental); text-transform:uppercase; letter-spacing:-.02em; line-height:.9; color:var(--bege); font-size:clamp(42px,8vw,82px); margin-bottom:16px;}
+.subtitle{font-family:var(--voz-sagrada); font-size:clamp(16px,2.2vw,21px); color:var(--bronze-claro); letter-spacing:.02em; line-height:1.35; margin-bottom:24px;}
+.firebar{height:3px; width:100px; background:var(--linha-de-fogo); border-radius:3px; margin-bottom:28px;}
+.lead{font-size:18px; color:var(--fg2); max-width:60ch; line-height:1.75;}
+.lead strong{color:var(--bege);}
+header{border-bottom:1px solid var(--linha-bronze); padding-bottom:36px; margin-bottom:52px;}
+
+/* Grid de cards */
+.grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+@media(max-width:620px){.grid{grid-template-columns:1fr;}}
+
+.card{
+  display:block;
+  text-decoration:none;
+  border:1px solid var(--linha-fraca);
+  border-radius:14px;
+  background:linear-gradient(160deg,var(--preto-2),var(--preto));
+  padding:26px 28px 24px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .18s, box-shadow .18s;
+}
+.card:hover{transform:translateY(-3px); box-shadow:0 12px 40px rgba(0,0,0,.5);}
+.card:before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--linha-de-fogo); opacity:.8;}
+
+.card-num{font-family:var(--voz-monumental); font-size:13px; color:var(--amarelo); letter-spacing:.08em; margin-bottom:10px; opacity:.7;}
+.card-title{font-family:var(--voz-sagrada); font-size:clamp(17px,2.2vw,20px); color:var(--bege); letter-spacing:.03em; text-transform:uppercase; margin-bottom:10px; line-height:1.25;}
+.card-desc{font-size:15px; color:var(--fg2); line-height:1.6;}
+.card-arrow{position:absolute; bottom:20px; right:22px; color:var(--amarelo); font-size:18px; opacity:.6; transition:opacity .15s, transform .15s;}
+.card:hover .card-arrow{opacity:1; transform:translateX(3px);}
+
+/* Card PDF diferente */
+.card.pdf{border-color:rgba(139,111,71,.28);}
+.card.pdf:before{opacity:.4;}
+
+/* Rodapé */
+.colophon{margin-top:54px; padding-top:22px; border-top:1px solid var(--linha-fraca); color:var(--fg3); font-size:13px; line-height:1.7;}
+.colophon b{color:var(--bronze);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brandline">
+      <span class="seal">∞</span>
+      <span class="meta">AIOX na Prática · Academia Lendár[IA]</span>
+    </div>
+    <p class="kicker">Kit de Ferramentas</p>
+    <h1>Método DSPC</h1>
+    <p class="subtitle">Dor · Sprint · Pitch · Contrato</p>
+    <div class="firebar"></div>
+    <p class="lead">Seus materiais de <strong>diagnóstico, vendas e implementação</strong> reunidos em um só lugar. Clique em qualquer ferramenta para abrir.</p>
+  </header>
+
+  <div class="grid">
+    <a class="card" href="_MAPA_DSPC.html">
+      <div class="card-num">01</div>
+      <div class="card-title">Mapa DSPC</div>
+      <div class="card-desc">O mapa completo do método — do diagnóstico da dor até o contrato fechado.</div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card" href="_BANCO_DORES_CARAS.html">
+      <div class="card-num">02</div>
+      <div class="card-title">Banco de Dores Caras</div>
+      <div class="card-desc">Repositório das dores que custam tempo, dinheiro e foco — por nicho.</div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card" href="_ABRIDOR_DE_CONVERSA.html">
+      <div class="card-num">03</div>
+      <div class="card-title">Abridor de Conversa</div>
+      <div class="card-desc">A primeira mensagem que marca o diagnóstico — em 60 segundos.</div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card" href="_CHECKLIST_DEMO_COMPRAVEL.html">
+      <div class="card-num">04</div>
+      <div class="card-title">Checklist da Demo Comprável</div>
+      <div class="card-desc">O que sua demonstração precisa ter pra virar contrato — não só impressionar.</div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card" href="_COPILOTO_DSPC_CARD.html">
+      <div class="card-num">05</div>
+      <div class="card-title">Copiloto DSPC</div>
+      <div class="card-desc">Seu mentor IA que te conduz etapa por etapa pelo método até o serviço pronto pra vender.</div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card pdf" href="Template Offerbook.pdf" target="_blank">
+      <div class="card-num">PDF</div>
+      <div class="card-title">Template Offerbook</div>
+      <div class="card-desc">Story Selling — estrutura completa para montar sua oferta e copy.</div>
+      <span class="card-arrow">↗</span>
+    </a>
+  </div>
+
+  <p class="colophon">
+    <b>Método DSPC</b> — Dor · Sprint · Pitch · Contrato. &nbsp;|&nbsp; AIOX na Prática · Academia Lendár[IA].
+  </p>
+</div>
+</body>
+</html>
